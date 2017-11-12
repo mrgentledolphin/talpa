@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<script
+	  src="https://code.jquery.com/jquery-3.2.1.min.js"
+	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	  crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+	<title>Talpa la Schiaccia</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Metal+Mania" rel="stylesheet">
+</head>
+<body>
+	<div class="lost hide noselect">
+		<p class="gameover">GAME OVER</p>
+		<p class="score"></p>
+		<a href="index.html" style=""> <p style="text-align: center;">Retry!</p> </a>
+		<a href="#" class="getLeader">Submit to LeaderBoard</a>
+		<form action="http://dolphinsdick.onthewifi.com:3300/addNew" class="form-group hide former" method="post">
+			<input type="number" name="score" class="form-control hide submitScore">
+			<input type="text" name="nome" class="form-control" placeholder="Inserisci il nome...">
+			<input type="submit" class="btn-primary btn">
+		</form>
+	</div>
+	<div class="menu noselect">
+		<p class="title">Schiaccia la Talpa</p>
+		<a href="#" class="trenta">30 secondi</a><br>
+		<a href="#" class="sessanta">60 secondi</a><br>
+		<a href="#" class="unlimited">unlimited</a><br>
+		<a href="#" class="hardcore">hardcore</a><br>
+	</div>
+	<div class="dark"></div>
+	<h1 class="text-center">Schiaccia la Talpa</h1>
+	<h3 class="text-center score">Score: 0</h3>
+	<h3 class="text-center hp">HP: 5</h3>
+	<h3 class="text-center time">Time: 30</h3>
+	<div class="gameScreen">
+		<div class="tana num1"></div>
+		<div class="tana num2"></div>
+		<div class="tana num3"></div>
+		<div class="tana num4"></div>
+		<div class="tana num5"></div>
+		<div class="tana num6"></div>
+		<div class="tana num7"></div>
+		<div class="tana num8"></div>
+		<div class="tana num9"></div>
+	</div>
+
+	<audio controls id="audio" autoplay="true" loop="true">
+	  <source src="" type="audio/mpeg" id="song">
+	Your browser does not support the audio element.
+	</audio>
+	
+	<script src="script.js"></script>
+</body>
+</html>

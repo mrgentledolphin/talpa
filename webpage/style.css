@@ -1,0 +1,88 @@
+.gameScreen{
+	width: 600px;
+	height: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	box-sizing: border-box;
+}
+
+.tana{
+	width: 200px;
+	height: 200px;
+	border: 1px solid black;
+	box-sizing: border-box;
+	float: left;
+}
+
+.diglett{
+	background: url(Diglett.png) no-repeat;
+	cursor: pointer;
+}
+
+.red{
+	background-color: #ff0000;
+}
+
+.green{
+	background-color: #60ff1c;
+}
+
+.lost{
+	position: fixed;
+	left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+	font-size: 4rem;
+	font-family: 'Metal Mania', cursive;
+	z-index: 3;
+	color: white;
+	text-align: center;
+}
+.dark{
+	position: fixed;
+	background-color: rgba(0,0,0,0.9);
+	height: 100vh;
+	width: 100%;
+	z-index: 2;
+}
+
+.hide{
+	display: none;
+}
+
+#audio{
+	visibility: hidden;
+}
+#ting{
+	visibility: hidden;
+}
+.menu{
+	position: fixed;
+	left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+	font-size: 4rem;
+	font-family: 'Metal Mania', cursive;
+	z-index: 4;
+	color: white;
+	text-align: center;
+}
+
+.center{
+	text-align: center;
+}
+
+.title{
+	font-size: 7rem;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
