@@ -12,6 +12,8 @@ $(function () {
 	let player = $("#audio");
 	let songN = Math.floor((Math.random() * 11) + 1);
 	let actSong = songs[songN];
+	let modalita = "30 sec";
+
 
 	$('#song').attr('src', actSong);
 	player[0].pause();
@@ -88,6 +90,7 @@ $(function () {
 		$('.trenta').on('click', function(){
 			$('.dark').addClass('hide');
 			$('.menu').addClass('hide');
+			modalita = "30 sec";
 			play();
 			clockTick();
 		})
@@ -95,6 +98,7 @@ $(function () {
 			clock = 60;
 			$('.dark').addClass('hide');
 			$('.menu').addClass('hide');
+			modalita = "60 sec";
 			play();
 			clockTick();
 		})
@@ -103,6 +107,7 @@ $(function () {
 			$('.dark').addClass('hide');
 			$('.menu').addClass('hide');
 			$('.time').text('∞');
+			modalita = "unlimited";
 			play();
 		})
 		$('.hardcore').on('click', function(){
@@ -113,6 +118,7 @@ $(function () {
 			$('.time').text('Time: 15');
 			$('.dark').addClass('hide');
 			$('.menu').addClass('hide');
+			modalita = "hardcore";
 			play();
 			clockTick();
 		})
@@ -124,6 +130,7 @@ $(function () {
 	$('.getLeader').on('click', function(){
 		$('.former').slideDown('200', function() {
 			$('.submitScore').attr('value', score);
+			$('.submitMod').attr('value', modalita);
 		});
 	})
 	

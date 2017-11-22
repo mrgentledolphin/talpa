@@ -20,9 +20,11 @@ express()
     .use(express.static(__dirname + '/views'))
     .set('view engine', 'hjs')
     .post('/addNew', (req, res) => {
+        console.log('received')
         let punteggio = {
             nome: req.body.nome,
-            score: req.body.score
+            score: req.body.score,
+            modalita: req.body.modalita
         }
         db('talpa')
             .insert(punteggio)
@@ -31,7 +33,9 @@ express()
                 res.redirect('/leaderboard')
             })
     })
-
+    .get('/', (req, res) => {
+        res.send('ok')
+    })
     .get('/leaderboard', (req, res) => {
         db('talpa')
             .then((classifica) => {
