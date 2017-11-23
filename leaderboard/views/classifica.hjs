@@ -21,7 +21,7 @@
         </div>
         <ul class="list-group col-lg-12">
         {{#classifica}}
-            <li class="list-group-item"><b>{{nome}}: </b>{{score}} -- {{modalita}}</li>
+            <li class="list-group-item"><b>{{nome}}: </b>Punteggio: {{score}} -- Modalità: {{modalita}}</li>
         {{/classifica}}
         </ul>
     </div>
