@@ -13,7 +13,12 @@ $(function () {
 	let songN = Math.floor((Math.random() * 11) + 1);
 	let actSong = songs[songN];
 	let modalita = "30 sec";
-
+	let event = "click";
+	let device = "pc";
+	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+	 	event = "touchstart";
+	 	device = "mobile";
+	}
 
 	$('#song').attr('src', actSong);
 	player[0].pause();
@@ -58,12 +63,8 @@ $(function () {
 		}, 1000);
 	}
 
-
 	
-
-
-
-	$('.tana').on('click', function(){
+	$('.tana').on(event, function(){
 		if( $(this).hasClass('diglett') && hp > 0 && !($(this).hasClass('green')) ) {
 			score++;
 			time = time/divisor;
@@ -129,8 +130,9 @@ $(function () {
 
 	$('.getLeader').on('click', function(){
 		$('.former').slideDown('200', function() {
-			$('.submitScore').attr('value', score);
+			$('.submitScore').attr('value', score + (hp * 2));
 			$('.submitMod').attr('value', modalita);
+			$('.submitDev').attr('value', device);
 		});
 	})
 	

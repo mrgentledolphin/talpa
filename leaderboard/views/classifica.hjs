@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
     crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
     crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
@@ -19,14 +21,86 @@
         <div class="jumbotron">
             <h1 class="text-center">CLASSIFICA TALPA LA SCHIACCIA</h1>
         </div>
-        <ul class="list-group col-lg-12">
-        {{#classifica}}
-            <li class="list-group-item"><b>{{nome}}: </b>Punteggio: {{score}} -- Modalità: {{modalita}}</li>
-        {{/classifica}}
-        </ul>
+
+
+        <button class="btn btn-primary ml-3 mb-4 collapser">Collapse all</button>
+        <div class="tab mb-2 col-lg-12">
+            <div data-target="trenta"  class="clicker">Classifica 30 secondi</div>
+            <ul class="trenta list-group hidden">
+                {{#trenta}}
+                     <li class="list-group-item"><b>{{nome}}: </b>{{score}}</li>
+                {{/trenta}}
+            </ul>
+        </div>
+
+
+        <div class="tab mb-2 col-lg-12">
+            <div data-target="sessanta" class="clicker">Classifica 60 secondi</div>
+            <ul class="sessanta list-group hidden">
+                {{#sessanta}}
+                     <li class="list-group-item"><b>{{nome}}: </b>{{score}}</li>
+                {{/sessanta}}
+            </ul>
+        </div>
+
+
+        <div class="tab mb-2 col-lg-12">
+            <div data-target="unlimited" class="clicker">Classifica Unlimited</div>
+            <ul class="unlimited list-group hidden">
+                {{#unlimited}}
+                     <li class="list-group-item"><b>{{nome}}: </b>{{score}}</li>
+                {{/unlimited}}
+            </ul>
+        </div>
+
+
+        <div class="tab mb-2 col-lg-12">
+            <div data-target="hardcore" class="clicker">Classifica Hardcore</div>
+            <ul class="hardcore list-group hidden">
+                {{#hardcore}}
+                     <li class="list-group-item"><b>{{nome}}: </b>{{score}}</li>
+                {{/hardcore}}
+            </ul>
+        </div>
     </div>
+
+
+    <script>
+        
+        $(function () {
+            $('.clicker').on('click', function(){
+                $('.list-group').addClass('hidden');
+                let target = $(this).attr('data-target');
+                $('.' + target).removeClass('hidden');
+            })
+            $('.collapser').on('click', function(){
+                $('.list-group').addClass('hidden');
+            })
+        })
+
+
+
+    </script>
 </body>
-<style>
+<style> 
+    .hidden{
+        display: none;
+    }
+    .clicker{
+        width: 100%;
+        border: 1px solid #757575;
+        color: #757575;
+        border-radius: 10px;
+        padding: 4px;
+    }
+    .clicker:hover{
+        border: 1px solid black;
+        color: black;
+    }
+    .active{
+        border: 1px solid black;
+        color: black;
+    }
     ul{
         padding: 0;
         margin: 0;

@@ -37,12 +37,33 @@ express()
         res.send('ok')
     })
     .get('/leaderboard', (req, res) => {
+
         db('talpa')
-            .then((classifica) => {
-                classifica.sort(dynamicSort('score'))
-                res.render('classifica', {
-                    classifica
-                })
+            .where('modalita', '30 sec')
+            .then((trenta) => {
+                trenta.sort(dynamicSort('score'))
+                db('talpa')
+                    .where('modalita', '60 sec')
+                    .then((sessanta) => {
+                        sessanta.sort(dynamicSort('score'))
+                        db('talpa')
+                            .where('modalita', 'unlimited')
+                            .then((unlimited) => {
+                                unlimited.sort(dynamicSort('score'))
+                                db('talpa')
+                                    .where('modalita', 'hardcore')
+                                    .then((hardcore) => {
+                                        hardcore.sort(dynamicSort('score'))
+
+                                        res.render('classifica', {
+                                            trenta,
+                                            sessanta,
+                                            unlimited,
+                                            hardcore
+                                        })
+                                    })
+                            })
+                    })
             })
     })
 
